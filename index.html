@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Premium International Education Centre (PIEC) — IGCSE သင်တန်း</title>
+  <meta name="description" content="Premium International Education Centre (PIEC) — IGCSE tuition in Yangon. Small classes (max 7), Cambridge & Edexcel pathways, progress tracking, and free assessments." />
+  <meta property="og:title" content="PIEC — Premium IGCSE Tuition in Yangon" />
+  <meta property="og:description" content="Small classes (max 7) • Cambridge & Edexcel • Progress reports • Free assessment" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="%230f766e"/><stop offset="1" stop-color="%23d4af37"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(%23g)"/><text x="32" y="41" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="rgba(0,0,0,.45)">PI</text><text x="32" y="39" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="white">PI</text></svg>' />
+
+  <!-- Fonts (Myanmar + English) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0f0d;
+      --card:rgba(255,255,255,.06);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --line:rgba(255,255,255,.14);
+      --emerald:#0f766e;
+      --gold:#d4af37;
+      --shadow:0 24px 60px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, Padauk, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% 0%, rgba(15,118,110,.35), transparent 60%),
+        radial-gradient(700px 500px at 85% 15%, rgba(212,175,55,.22), transparent 55%),
+        linear-gradient(180deg, #070a08 0%, #0b0f0d 40%, #060807 100%);
+      line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{width:min(1120px, 92vw); margin-inline:auto}
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(6,8,7,.55);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0; gap:16px}
+    .brand{display:flex; align-items:center; gap:12px; min-width: 220px}
+    .logo{
+      width:42px; height:42px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(15,118,110,.9), rgba(212,175,55,.75));
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      display:grid; place-items:center;
+      border:1px solid rgba(255,255,255,.18);
+      font-weight:800;
+    }
+    .brand h1{margin:0; font-size:14px; letter-spacing:.08em; text-transform:uppercase}
+    .brand p{margin:0; font-size:12px; color:var(--muted)}
+    .links{display:flex; gap:18px; align-items:center}
+    .links a{font-size:13px; color:var(--muted)}
+    .links a:hover{color:var(--text)}
+    .cta-row{display:flex; gap:10px; align-items:center}
+    .btn{
+      border:1px solid rgba(255,255,255,.18);
+      padding:10px 14px;
+      border-radius:12px;
+      font-size:13px;
+      display:inline-flex; align-items:center; gap:10px;
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      cursor:pointer;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.28)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(15,118,110,.95), rgba(15,118,110,.65));
+      border-color: rgba(15,118,110,.35);
+    }
+    .btn.gold{
+      background: linear-gradient(135deg, rgba(212,175,55,.95), rgba(182,139,44,.75));
+      border-color: rgba(212,175,55,.35);
+      color:#1a1302;
+      font-weight:700;
+    }
+    .hamburger{display:none}
+
+    .hero{padding:64px 0 26px; border-bottom:1px solid var(--line)}
+    .hero-grid{display:grid; grid-template-columns: 1.25fr .75fr; gap:26px; align-items:stretch}
+    .kicker{color: rgba(212,175,55,.95); letter-spacing:.14em; text-transform:uppercase; font-size:12px; font-weight:700}
+    .hero h2{margin:10px 0 14px; font-size: clamp(28px, 4.2vw, 46px); line-height:1.1}
+    .hero p{margin:0 0 20px; color:var(--muted); font-size:15px}
+    .pill-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .pill{border:1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.04); padding:8px 10px; border-radius:999px; font-size:12px; color:var(--muted)}
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:18px;
+      padding:18px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+      min-height: 260px;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute; inset:-40px -60px auto auto;
+      width:220px; height:220px;
+      background: radial-gradient(circle, rgba(212,175,55,.32), transparent 65%);
+      filter: blur(2px);
+    }
+    .hero-card h3{margin:0 0 8px; font-size:16px}
+    .hero-card .muted{color:var(--muted); font-size:13px; margin:0 0 14px}
+    .mini-list{margin:0; padding-left:18px; color:var(--muted); font-size:13px}
+    .mini-list li{margin:6px 0}
+
+    section{padding:44px 0; border-bottom:1px solid var(--line)}
+    .section-title{display:flex; align-items:flex-end; justify-content:space-between; gap:14px; margin-bottom:18px}
+    .section-title h3{margin:0; font-size:22px}
+    .section-title p{margin:0; color:var(--muted); font-size:13px}
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+    .grid-3{display:grid; grid-template-columns:repeat(3, 1fr); gap:14px}
+    .grid-4{display:grid; grid-template-columns:repeat(4, 1fr); gap:12px}
+
+    .card{background: var(--card); border:1px solid rgba(255,255,255,.14); border-radius:16px; padding:16px}
+    .card h4{margin:0 0 8px; font-size:15px}
+    .card p{margin:0; color:var(--muted); font-size:13px}
+
+    .badge{display:inline-flex; align-items:center; gap:8px; font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.04); color:var(--muted)}
+    .list{margin:10px 0 0; padding-left:18px; color:var(--muted); font-size:13px}
+    .list li{margin:6px 0}
+
+    .stat{background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.14); border-radius:16px; padding:16px; text-align:center}
+    .stat .num{font-size:26px; font-weight:800}
+    .stat .lbl{font-size:12px; color:var(--muted)}
+
+    .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+    .form{display:grid; gap:10px}
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      outline:none;
+      font-family: inherit;
+      font-size:13px;
+    }
+    textarea{min-height:120px; resize:vertical}
+    .fine{color:var(--muted); font-size:12px}
+
+    footer{padding:26px 0 40px; color: var(--muted); font-size:12px}
+
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .grid-4{grid-template-columns:repeat(2, 1fr)}
+      .grid-2{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .links{display:none}
+      .hamburger{display:inline-flex}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top Navigation -->
+  <div class="topbar">
+    <div class="container">
+      <div class="nav">
+        <div class="brand">
+          <div class="logo">PI</div>
+          <div>
+            <h1>Premium International Education Centre</h1>
+            <p>IGCSE (Cambridge & Edexcel) • ESL • Yangon</p>
+          </div>
+        </div>
+
+        <nav class="links" aria-label="Primary">
+          <a href="#about">ကျောင်းအကြောင်း</a>
+          <a href="#subjects">ဘာသာရပ်များ</a>
+          <a href="#teachers">ဆရာ/မများ</a>
+          <a href="#learning">သင်ကြားမှု</a>
+          <a href="#schedule">အတန်းချိန်</a>
+          <a href="#fees">သင်တန်းကြေး</a>
+          <a href="#contact">ဆက်သွယ်ရန်</a>
+        </nav>
+
+        <div class="cta-row">
+          <a class="btn" href="#contact" title="Learn more">ပိုမိုသိလိုသည်</a>
+          <button class="btn gold" onclick="openAssessment()">အခမဲ့ Assessment ယူမည်</button>
+          <button class="btn hamburger" onclick="toggleMobile()">မီနူး</button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobileMenu" style="display:none; padding: 0 0 14px;">
+        <div class="card" style="padding:12px; display:flex; flex-wrap:wrap; gap:10px;">
+          <a class="btn" href="#about" onclick="toggleMobile()">ကျောင်းအကြောင်း</a>
+          <a class="btn" href="#subjects" onclick="toggleMobile()">ဘာသာရပ်များ</a>
+          <a class="btn" href="#teachers" onclick="toggleMobile()">ဆရာ/မများ</a>
+          <a class="btn" href="#learning" onclick="toggleMobile()">သင်ကြားမှု</a>
+          <a class="btn" href="#schedule" onclick="toggleMobile()">အတန်းချိန်</a>
+          <a class="btn" href="#fees" onclick="toggleMobile()">သင်တန်းကြေး</a>
+          <a class="btn" href="#contact" onclick="toggleMobile()">ဆက်သွယ်ရန်</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">Premium IGCSE Tuition in Yangon</div>
+          <h2>World‑class IGCSE learning, built for results — and confidence.</h2>
+          <p>
+            PIEC provides a supportive, disciplined environment for students following
+            <strong>Cambridge</strong> and <strong>Pearson Edexcel</strong> pathways.
+            We focus on critical thinking, exam technique, and consistent progress tracking.
+          </p>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin: 10px 0 0;">
+            <a class="btn primary" href="#contact">ဆက်သွယ်မည်</a>
+            <button class="btn" onclick="openAssessment()">အခမဲ့ Assessment</button>
+            <a class="btn" href="#schedule">အတန်းချိန်ကြည့်မည်</a>
+            <a class="btn" href="tel:+95018376859" title="Call PIEC">Call: 018 376 859</a>
+          </div>
+
+          <div class="pill-row" aria-label="Highlights">
+            <span class="pill">Small classes • max 7 students</span>
+            <span class="pill">Weekday + Weekend tracks</span>
+            <span class="pill">Progress reports for parents</span>
+            <span class="pill">Exam technique + Past papers</span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Quick info">
+          <h3>What you get at PIEC</h3>
+          <p class="muted">A premium learning experience with close teacher support.</p>
+          <ul class="mini-list">
+            <li><strong>IGCSE Subject Specialists</strong> with clear teaching methods</li>
+            <li><strong>Personalised learning plans</strong> for each student</li>
+            <li><strong>Regular monitoring</strong> and parent communication</li>
+            <li><strong>Flexible options</strong>: small-group, 1‑to‑1, intensive</li>
+          </ul>
+
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <span class="badge">📍 Botahtaung, Yangon</span>
+            <span class="badge">🚫 No Friday</span>
+            <span class="badge">🕘 9:00 AM – 6:00 PM</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>About PIEC</h3>
+          <p>Education that builds discipline, clarity, and long‑term academic strength.</p>
+        </div>
+        <span class="badge">English + Myanmar support</span>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>Our Mission</h4>
+          <p>
+            We aim to bridge local potential with international standards by teaching
+            <strong>concept mastery</strong>, <strong>exam technique</strong>, and
+            <strong>critical thinking</strong>—not just memorisation.
+          </p>
+          <ul class="list">
+            <li>Holistic development and disciplined study habits</li>
+            <li>Clear learning targets and measurable progress</li>
+            <li>Supportive environment that encourages confidence</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>မိဘတွေအတွက် အဓိကကတိ (Our Promise)</h4>
+          <p>
+            PIEC မှာ “အောင်စာမေးပွဲ” တစ်ခုတည်းမဟုတ်ဘဲ ကလေးရဲ့
+            <strong>Potential</strong> ကို ဖော်ထုတ်ပြီး နိုင်ငံတကာအဆင့်မီ
+            သင်ယူနိုင်စေဖို့ စနစ်ကျ သင်ကြားပေးပါတယ်။
+          </p>
+          <ul class="list">
+            <li>တစ်ယောက်ချင်းစီကို အနီးကပ် အာရုံစိုက်</li>
+            <li>ပုံမှန် Progress Report ဖြင့် မိဘထံ အသိပေး</li>
+            <li>စိတ်ပိုင်းဆိုင်ရာ Wellbeing ကိုပါ ပံ့ပိုး</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subjects -->
+  <section id="subjects">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>IGCSE Subjects We Cover</h3>
+          <p>Core & Extended subjects across Cambridge and Edexcel pathways.</p>
+        </div>
+        <a class="btn" href="#contact">Ask about a subject</a>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h4>Sciences</h4>
+          <ul class="list">
+            <li>Biology</li>
+            <li>Chemistry</li>
+            <li>Physics</li>
+            <li>Human Biology</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Mathematics</h4>
+          <ul class="list">
+            <li>Core Mathematics</li>
+            <li>Extended Mathematics</li>
+            <li>Additional Mathematics</li>
+            <li>Statistics</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Humanities & Languages</h4>
+          <ul class="list">
+            <li>Business Studies</li>
+            <li>Economics</li>
+            <li>ICT / Computer Science</li>
+            <li>English (First / Second Language)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:14px" class="card">
+        <h4>Packages</h4>
+        <p>
+          Choose individual subjects or a comprehensive package depending on your pathway goals.
+          We also provide intensive revision and past-paper practice sessions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teachers -->
+  <section id="teachers">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Our Expert Teaching Team</h3>
+          <p>Subject specialists experienced with IGCSE standards and marking expectations.</p>
+        </div>
+        <span class="badge">Personalised learning plans</span>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h4>Subject Specialists</h4>
+          <p>Teachers selected for both academic mastery and student-support skill.</p>
+          <ul class="list">
+            <li>Clear explanations + structured practice</li>
+            <li>Up-to-date with exam-board changes</li>
+            <li>Consistent feedback loops</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Exam Technique First</h4>
+          <p>We train students to answer like examiners want—step by step.</p>
+          <ul class="list">
+            <li>Past-paper practice + marking style feedback</li>
+            <li>Time management & question strategy</li>
+            <li>Weak-area fixing plans</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Continuous Development</h4>
+          <p>Resources and teaching methods updated regularly.</p>
+          <ul class="list">
+            <li>Teacher training sessions</li>
+            <li>Structured lesson planning</li>
+            <li>Parent communication culture</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learning Options -->
+  <section id="learning">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Flexible Learning Options</h3>
+          <p>In-person, online, small-group, and one-to-one—choose what fits.</p>
+        </div>
+        <span class="badge">Max 7 students per class</span>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>In‑Person Classes</h4>
+          <p>Interactive learning in a focused classroom environment.</p>
+          <ul class="list">
+            <li>Collaborative group sessions</li>
+            <li>Hands-on learning and practice</li>
+            <li>Access to learning resources</li>
+            <li>Safe, comfortable environment</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Online Classes (Optional)</h4>
+          <p>Live interactive lessons with digital whiteboard + resource sharing.</p>
+          <ul class="list">
+            <li>Recorded sessions for revision (if enabled)</li>
+            <li>Flexible scheduling</li>
+            <li>One-to-one virtual support available</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:14px" class="grid-3">
+        <div class="card">
+          <h4>Small Group Classes</h4>
+          <p>Better attention, better confidence, better results.</p>
+        </div>
+        <div class="card">
+          <h4>One-to-One Tutoring</h4>
+          <p>Fully personalised plan based on pace and learning needs.</p>
+        </div>
+        <div class="card">
+          <h4>Intensive Revision</h4>
+          <p>Crash courses, exam technique workshops, and past paper practice.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:16px" class="grid-4" aria-label="Stats">
+        <div class="stat">
+          <div class="num">7</div>
+          <div class="lbl">Max students / class</div>
+        </div>
+        <div class="stat">
+          <div class="num">2×</div>
+          <div class="lbl">Classes per week / subject</div>
+        </div>
+        <div class="stat">
+          <div class="num">Monthly</div>
+          <div class="lbl">Progress updates to parents</div>
+        </div>
+        <div class="stat">
+          <div class="num">Guide</div>
+          <div class="lbl">Homework + review support</div>
+        </div>
+      </div>
+
+      <p class="fine" style="margin-top:10px;">
+        These are structure features (not marketing claims). We can replace with your verified results anytime.
+      </p>
+    </div>
+  </section>
+
+  <!-- Schedule -->
+  <section id="schedule">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Class Schedule (Weekdays & Weekends)</h3>
+          <p>Flexible options • No Friday • Choose the time slot that fits your family.</p>
+        </div>
+        <span class="badge">Small class • Max 7</span>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>Teaching Sessions (Main Classes)</h4>
+          <p>Each subject is typically taught <strong>2 classes per week</strong>.</p>
+
+          <div style="overflow:auto; margin-top:10px;">
+            <table style="width:100%; border-collapse:separate; border-spacing:0; font-size:13px;">
+              <thead>
+                <tr>
+                  <th style="text-align:left; padding:10px; border-bottom:1px solid rgba(255,255,255,.14);">Time</th>
+                  <th style="text-align:left; padding:10px; border-bottom:1px solid rgba(255,255,255,.14);">Session</th>
+                  <th style="text-align:left; padding:10px; border-bottom:1px solid rgba(255,255,255,.14);">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,.08);">9:00 – 10:30</td>
+                  <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,.08);">Class</td>
+                  <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,.08);">Concept + practice</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,.08);">10:30 – 12:00</td>
+                  <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,.08);">Class</td>
+                  <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,.08);">Skills + exam technique</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px;">1:00 – 2:30</td>
+                  <td style="padding:10px;">Class</td>
+                  <td style="padding:10px;">Past paper style tasks</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="fine" style="margin-top:10px;">
+            Days: <strong>Weekdays</strong> (Mon–Thu) or <strong>Weekends</strong> (Sat–Sun). <strong>No Friday</strong>.
+          </p>
+        </div>
+
+        <div class="card">
+          <h4>Guide Sessions (Homework + Review)</h4>
+          <p>Optional support to review lessons, finish homework, and strengthen weak areas.</p>
+
+          <div style="overflow:auto; margin-top:10px;">
+            <table style="width:100%; border-collapse:separate; border-spacing:0; font-size:13px;">
+              <thead>
+                <tr>
+                  <th style="text-align:left; padding:10px; border-bottom:1px solid rgba(255,255,255,.14);">Time</th>
+                  <th style="text-align:left; padding:10px; border-bottom:1px solid rgba(255,255,255,.14);">Focus</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,.08);">2:30 – 4:00</td>
+                  <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,.08);">Review what was learned + homework support</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px;">4:00 – 5:30</td>
+                  <td style="padding:10px;">Past paper practice + targeted fixing</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card" style="margin-top:12px; background: rgba(212,175,55,.08); border-color: rgba(212,175,55,.22);">
+            <h4 style="margin-bottom:6px;">မြန်မာလို (Summary)</h4>
+            <p style="margin:0; color: rgba(255,255,255,.78); font-size:13px;">
+              အတန်းချိန်တွေကို <strong>Weekdays (Mon–Thu)</strong> နဲ့ <strong>Weekends (Sat–Sun)</strong> အဖြစ်ရွေးချယ်နိုင်ပါတယ်။
+              <strong>Friday မရှိပါ</strong>။ 2:30–5:30 အချိန်တွေမှာတော့ “Guide” အဖြစ် အိမ်စာ/ပြန်လည်သုံးသပ်မှုတွေကို အနီးကပ်ကူညီပေးပါတယ်။
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h4>How scheduling works</h4>
+        <ul class="list">
+          <li>Each subject: 2 main classes/week (choose weekday or weekend track)</li>
+          <li>Guide sessions are optional (especially helpful for younger learners or exam years)</li>
+          <li>If you tell us your available days, we’ll recommend a clean timetable</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fees -->
+  <section id="fees">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Fees & Packages</h3>
+          <p>Transparent pricing with bundle options and payment plans.</p>
+        </div>
+        <a class="btn" href="#contact">Ask for schedule</a>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h4>Monthly Package</h4>
+          <p>Best for long-term steady improvement.</p>
+          <ul class="list">
+            <li>2 classes per week per subject</li>
+            <li>Term progress report to parents</li>
+            <li><strong>From 250,000 MMK / subject / month</strong></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Guide Service</h4>
+          <p>Extra support for homework + lesson review.</p>
+          <ul class="list">
+            <li>Close guidance and study support</li>
+            <li><strong>30,000 MMK / month</strong></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Intensive Courses</h4>
+          <p>Crash courses and exam technique workshops.</p>
+          <ul class="list">
+            <li>Past paper practice</li>
+            <li><strong>From 300,000 MMK / subject</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:14px" class="grid-2">
+        <div class="card">
+          <h4>Private Tutoring (1‑to‑1)</h4>
+          <p>Completely personalised coverage for targeted improvement.</p>
+          <ul class="list">
+            <li>Flexible scheduling</li>
+            <li>Targeted topic coverage</li>
+            <li><strong>From 60,000 MMK / session</strong></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Special Offers</h4>
+          <ul class="list">
+            <li><strong>3‑Month Smart Bundle:</strong> pay 3 months in advance → free study material fees</li>
+            <li><strong>5‑Subject VIP Package:</strong> free registration + free materials (with 3‑month advance payment)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" style="border-bottom:none;">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Contact & Book Your အခမဲ့ Assessment</h3>
+          <p>Get honest recommendations for subjects, pathway, and study plan.</p>
+        </div>
+        <span class="badge">No-obligation consultation</span>
+      </div>
+
+      <div class="contact-grid">
+        <div class="card">
+          <h4>Contact Details</h4>
+          <p class="fine" style="margin-top:6px;">Phone</p>
+          <p style="margin:0 0 10px;">
+            <a class="btn" href="tel:+95018376859">018 376 859</a>
+            <a class="btn" href="tel:+959885043169">09 88 50 431 69</a>
+          </p>
+
+          <p class="fine" style="margin:0;">Email</p>
+          <p style="margin:6px 0 10px;">
+            <a class="btn" href="mailto:info@piec.edu.mm">info@piec.edu.mm</a>
+          </p>
+
+          <p class="fine" style="margin:0;">Address</p>
+          <p style="margin:6px 0 10px; color:var(--muted);">
+            အမှတ် (၃၀၉)၊ မဟာဗန္ဓုလလမ်း၊ (၄၁) လမ်းနှင့် (၄၂) လမ်းကြား၊ (ဝန်ကြီးများရုံးဘေး)၊ ဗိုလ်တထောင်မြို့နယ်၊ ရန်ကုန်မြို့
+          </p>
+
+          <div style="margin-top:10px; border:1px solid rgba(255,255,255,.12); border-radius:14px; overflow:hidden; background: rgba(255,255,255,.03);">
+            <iframe title="PIEC Location Map" style="width:100%; height:240px; border:0;" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=%E1%80%A1%E1%80%99%E1%80%BE%E1%80%90%E1%80%BA%20%28%E1%81%83%E1%81%80%E1%81%89%29%E1%81%8A%20%E1%80%99%E1%80%9F%E1%80%AC%E1%80%97%E1%80%94%E1%80%B9%E1%80%93%E1%80%AF%E1%80%9C%E1%80%9C%E1%80%99%E1%80%BA%E1%80%B8%E1%81%8A%20%28%E1%81%84%E1%81%81%29%20%E1%80%9C%E1%80%99%E1%80%BA%E1%80%B8%E1%80%94%E1%80%BE%E1%80%84%E1%80%B7%E1%80%BA%20%28%E1%81%84%E1%81%82%29%20%E1%80%9C%E1%80%99%E1%80%BA%E1%80%B8%E1%80%80%E1%80%BC%E1%80%AC%E1%80%B8%E1%81%8A%20%28%E1%80%9D%E1%80%94%E1%80%BA%E1%80%80%E1%80%BC%E1%80%AE%E1%80%B8%E1%80%99%E1%80%BB%E1%80%AC%E1%80%B8%E1%80%9B%E1%80%AF%E1%80%B6%E1%80%B8%E1%80%98%E1%80%B1%E1%80%B8%29%E1%81%8A%20%E1%80%97%E1%80%AD%E1%80%AF%E1%80%9C%E1%80%BA%E1%80%90%E1%80%91%E1%80%B1%E1%80%AC%E1%80%84%E1%80%BA%E1%80%99%E1%80%BC%E1%80%AD%E1%80%AF%E1%80%B7%E1%80%94%E1%80%9A%E1%80%BA%E1%81%8A%20%E1%80%9B%E1%80%94%E1%80%BA%E1%80%80%E1%80%AF%E1%80%94%E1%80%BA%E1%80%99%E1%80%BC%E1%80%AD%E1%80%AF%E1%80%B7&output=embed"></iframe>
+          </div>
+          <p style="margin:10px 0 0;">
+            <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E1%80%A1%E1%80%99%E1%80%BE%E1%80%90%E1%80%BA%20%28%E1%81%83%E1%81%80%E1%81%89%29%E1%81%8A%20%E1%80%99%E1%80%9F%E1%80%AC%E1%80%97%E1%80%94%E1%80%B9%E1%80%93%E1%80%AF%E1%80%9C%E1%80%9C%E1%80%99%E1%80%BA%E1%80%B8%E1%81%8A%20%28%E1%81%84%E1%81%81%29%20%E1%80%9C%E1%80%99%E1%80%BA%E1%80%B8%E1%80%94%E1%80%BE%E1%80%84%E1%80%B7%E1%80%BA%20%28%E1%81%84%E1%81%82%29%20%E1%80%9C%E1%80%99%E1%80%BA%E1%80%B8%E1%80%80%E1%80%BC%E1%80%AC%E1%80%B8%E1%81%8A%20%28%E1%80%9D%E1%80%94%E1%80%BA%E1%80%80%E1%80%BC%E1%80%AE%E1%80%B8%E1%80%99%E1%80%BB%E1%80%AC%E1%80%B8%E1%80%9B%E1%80%AF%E1%80%B6%E1%80%B8%E1%80%98%E1%80%B1%E1%80%B8%29%E1%81%8A%20%E1%80%97%E1%80%AD%E1%80%AF%E1%80%9C%E1%80%BA%E1%80%90%E1%80%91%E1%80%B1%E1%80%AC%E1%80%84%E1%80%BA%E1%80%99%E1%80%BC%E1%80%AD%E1%80%AF%E1%80%B7%E1%80%94%E1%80%9A%E1%80%BA%E1%81%8A%20%E1%80%9B%E1%80%94%E1%80%BA%E1%80%80%E1%80%AF%E1%80%94%E1%80%BA%E1%80%99%E1%80%BC%E1%80%AD%E1%80%AF%E1%80%B7">Google Maps တွင်ဖွင့်မည်</a>
+          </p>
+
+          <p class="fine" style="margin-top:12px;">
+            Note: Update the social links in the script section (bottom of the HTML) to your real page URLs.
+          </p>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+            <a class="btn" href="#" onclick="openFacebook(); return false;">Facebook</a>
+            <a class="btn" href="#" onclick="openWhatsApp(); return false;">WhatsApp</a>
+            <a class="btn" href="#" onclick="openTelegram(); return false;">Telegram</a>
+            <a class="btn" href="#" onclick="openViber(); return false;">Viber</a>
+            <a class="btn" href="#" onclick="openMessenger(); return false;">Messenger</a>
+            <a class="btn" href="#" onclick="openTikTok(); return false;">TikTok</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Quick Enquiry Form</h4>
+          <p class="fine">This form will open WhatsApp (or email) with your message—no backend needed.</p>
+
+          <form class="form" onsubmit="submitEnquiry(event)">
+            <div class="grid-2" style="gap:10px;">
+              <input id="name" required placeholder="Parent/Student Name" />
+              <input id="phone" required placeholder="Phone number" />
+            </div>
+
+            <div class="grid-2" style="gap:10px;">
+              <select id="level">
+                <option value="IGCSE">IGCSE</option>
+                <option value="Secondary">Secondary</option>
+                <option value="Primary">Primary</option>
+                <option value="Other">Other</option>
+              </select>
+
+              <select id="mode">
+                <option value="Small Group (Max 7)">Small Group (Max 7)</option>
+                <option value="One-to-One">One-to-One</option>
+                <option value="Intensive Revision">Intensive Revision</option>
+                <option value="Not sure">Not sure</option>
+              </select>
+            </div>
+
+            <textarea id="msg" placeholder="Subjects interested in + preferred days/time (weekdays/weekends)"></textarea>
+
+            <button class="btn gold" type="submit">မေးမြန်းစာပို့မည်</button>
+            <div class="fine">By submitting, you’ll be redirected to WhatsApp (or email) with a pre‑filled message.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+        <div>© <span id="year"></span> Premium International Education Centre (PIEC). All rights reserved.</div>
+        <div>Built as a fast single‑file website (easy to upload & share).</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Assessment Modal -->
+  <div id="modal" style="display:none; position:fixed; inset:0; z-index:100; background: rgba(0,0,0,.6);">
+    <div class="container" style="height:100%; display:grid; place-items:center;">
+      <div class="card" style="width:min(680px, 92vw); box-shadow: var(--shadow);">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div>
+            <h4 style="margin:0 0 4px;">အခမဲ့ Assessment ယူမည်</h4>
+            <p class="fine" style="margin:0;">Tell us the student level + subjects. We’ll reply with available slots.</p>
+          </div>
+          <button class="btn" onclick="closeAssessment()">Close</button>
+        </div>
+
+        <div style="margin-top:12px; display:grid; gap:10px;">
+          <div class="grid-2" style="gap:10px;">
+            <input id="a_name" placeholder="Name" />
+            <input id="a_phone" placeholder="Phone" />
+          </div>
+          <input id="a_subjects" placeholder="Subjects (e.g., ESL, Maths, Biology)" />
+          <textarea id="a_note" placeholder="Preferred days/times (weekdays/weekends) + any notes"></textarea>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn gold" onclick="sendAssessment()">Send via WhatsApp</button>
+            <button class="btn" onclick="sendAssessmentEmail()">Send via Email</button>
+          </div>
+          <div class="fine">No backend required. This uses WhatsApp / Email links.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ====== UPDATE THESE LINKS (YOUR REAL LINKS) ======
+    const CONTACT = {
+      whatsappNumber: "959885043169",            // no +, no spaces
+      telegramLink: "https://t.me/",             // put your telegram link
+      viberLink: "viber://chat?number=%2B959885043169",
+      tiktokLink: "https://www.tiktok.com/",
+      facebookLink: "https://www.facebook.com/",
+      messengerLink: "https://m.me/"
+    };
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function toggleMobile(){
+      const m = document.getElementById("mobileMenu");
+      m.style.display = (m.style.display === "none" || !m.style.display) ? "block" : "none";
+    }
+
+    function openAssessment(){ document.getElementById("modal").style.display = "block"; }
+    function closeAssessment(){ document.getElementById("modal").style.display = "none"; }
+
+    function openWhatsApp(prefilledText){
+      const text = encodeURIComponent(prefilledText || "Hello PIEC, I would like to enquire about classes.");
+      const url = `https://wa.me/${CONTACT.whatsappNumber}?text=${text}`;
+      window.open(url, "_blank");
+    }
+    function openTelegram(){ window.open(CONTACT.telegramLink, "_blank"); }
+    function openViber(){ window.location.href = CONTACT.viberLink; }
+    function openTikTok(){ window.open(CONTACT.tiktokLink, "_blank"); }
+    function openFacebook(){ window.open(CONTACT.facebookLink, "_blank"); }
+    function openMessenger(){ window.open(CONTACT.messengerLink, "_blank"); }
+
+    function submitEnquiry(e){
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const level = document.getElementById("level").value;
+      const mode = document.getElementById("mode").value;
+      const msg = document.getElementById("msg").value.trim();
+
+      const text =
+`Enquiry (PIEC)
+Name: ${name}
+Phone: ${phone}
+Level: ${level}
+Class Type: ${mode}
+Message: ${msg || "-"}`;
+
+      try { openWhatsApp(text); }
+      catch {
+        const mail = "info@piec.edu.mm";
+        const subject = encodeURIComponent("PIEC Enquiry");
+        const body = encodeURIComponent(text);
+        window.location.href = `mailto:${mail}?subject=${subject}&body=${body}`;
+      }
+    }
+
+    function sendAssessment(){
+      const name = document.getElementById("a_name").value.trim();
+      const phone = document.getElementById("a_phone").value.trim();
+      const subjects = document.getElementById("a_subjects").value.trim();
+      const note = document.getElementById("a_note").value.trim();
+
+      const text =
+`အခမဲ့ Assessment Request (PIEC)
+Name: ${name || "-"}
+Phone: ${phone || "-"}
+Subjects: ${subjects || "-"}
+Preferred time: ${note || "-"}`;
+
+      openWhatsApp(text);
+    }
+
+    function sendAssessmentEmail(){
+      const name = document.getElementById("a_name").value.trim();
+      const phone = document.getElementById("a_phone").value.trim();
+      const subjects = document.getElementById("a_subjects").value.trim();
+      const note = document.getElementById("a_note").value.trim();
+
+      const text =
+`အခမဲ့ Assessment Request (PIEC)
+Name: ${name || "-"}
+Phone: ${phone || "-"}
+Subjects: ${subjects || "-"}
+Preferred time: ${note || "-"}`;
+
+      const mail = "info@piec.edu.mm";
+      const subject = encodeURIComponent("အခမဲ့ Assessment ယူမည် (PIEC)");
+      const body = encodeURIComponent(text);
+      window.location.href = `mailto:${mail}?subject=${subject}&body=${body}`;
+    }
+  </script>
+</body>
+</html>
